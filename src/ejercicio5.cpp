@@ -6,7 +6,7 @@
 #include <array>
 #include <optional>
 #include <cassert>
-#include <utilities.h>
+#include "utilities.h"
 
 // Ejercicio5
 // Realizar un programa que recorra un array de valores enteros y busque si

@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <cassert>
-#include <utilities.h>
+#include "utilities.h"
 
 // Ejercicio7
 // Pedir al usuario que introduzca un texto por teclado y mostrar por pantalla

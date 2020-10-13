@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <cassert>
-#include <utilities.h>
+#include "utilities.h"
 #include <array>
 
 // Ejercicio10

@@ -7,7 +7,7 @@
 #include <array>
 #include <vector>
 #include <sstream>
-#include <utilities.h>
+#include "utilities.h"
 
 // Ejercicio13
 // Pedir al usuario que introduzca un texto por teclado y mostrar todas las

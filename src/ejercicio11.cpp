@@ -1,14 +1,15 @@
 #include <iostream>
 #include <algorithm>
 #include <cassert>
-#include <utilities.h>
 #include <array>
+#include "utilities.h"
 
 // Ejercicio11
 // Crear un array de números enteros (entre el 1 y el 10) e indicar cuál es el
 // número que más veces aparece (y cuántas veces aparece).
 template<std::size_t SIZE>
 std::pair<int, int> ElemFreq(const std::array<int, SIZE> &arr) {
+  assert(std::none_of(arr.begin(), arr.end(), [](const int& n) {return n < 1 || n > 10;}));
   assert(SIZE > 0); // No podemos calcular el elem mas frecuente si esta vacio
 
   // Este array representa:
@@ -22,14 +23,14 @@ std::pair<int, int> ElemFreq(const std::array<int, SIZE> &arr) {
   // Indices    0     1     2     3     4     5     6     7     8     9
   // Valores: [ 1 ] [ 0 ] [ 0 ] [ 1 ] [ 2 ] [ 1 ] [ 0 ] [ 0 ] [ 0 ] [ 0 ]
   //
-  std::array<int, 10> freqs{}; // inicializa un arr de 10 elementos = 0
+  std::array<int, 10> freqs{}; // inicializa un arr de 10 elementos con 0
 
   // leemos el los numeros y los sumamos en el indice del array
   for (std::size_t i{0}; i < SIZE; ++i) {
     ++freqs[arr[i] - 1];
   }
   // Buscamos el mayor numero mayor en el array.
-  int *max_element{std::max_element(freqs.begin(), freqs.end())};
+  std::array<int,10>::iterator max_element{std::max_element(freqs.begin(), freqs.end())};
   // El numero de mayor frecuencia esta representado por su posicion + 1
   int most_frequent_number = static_cast<int>(max_element - freqs.begin()) + 1;
   // Retorna el primer elemento con mas frecuencia y cuantas veces
@@ -47,7 +48,7 @@ void Test() {
 
 int main() {
   // Test();
-  std::array arr{1, 2, 2, 0, 1, 4, 4, 2, 2, 10};
+  std::array arr{1, 2, 2, 3, 1, 4, 4, 2, 2, 10};
   std::cout << "Elemento que aparece con mas frecuencia en ";
   PrintCollection(arr.begin(), arr.end());
   std::pair<int, int> res{ElemFreq(arr)};
