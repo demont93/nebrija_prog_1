@@ -1,7 +1,0 @@
-add_test( TestEjercicio5.HandlesOne /home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/test/tests [==[--gtest_filter=TestEjercicio5.HandlesOne]==] --gtest_also_run_disabled_tests)
-set_tests_properties( TestEjercicio5.HandlesOne PROPERTIES WORKING_DIRECTORY /home/callisto/Projects/nebrija_1_2_3 SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
-add_test( TestEjercicio5.HandlesZero /home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/test/tests [==[--gtest_filter=TestEjercicio5.HandlesZero]==] --gtest_also_run_disabled_tests)
-set_tests_properties( TestEjercicio5.HandlesZero PROPERTIES WORKING_DIRECTORY /home/callisto/Projects/nebrija_1_2_3 SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
-add_test( TestEjercicio5.HandlesAll /home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/test/tests [==[--gtest_filter=TestEjercicio5.HandlesAll]==] --gtest_also_run_disabled_tests)
-set_tests_properties( TestEjercicio5.HandlesAll PROPERTIES WORKING_DIRECTORY /home/callisto/Projects/nebrija_1_2_3 SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
-set( tests_TESTS TestEjercicio5.HandlesOne TestEjercicio5.HandlesZero TestEjercicio5.HandlesAll)
