@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Project"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;CMake Files\src\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ejercicio1">
+				<Option output="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/ejercicio1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/callisto/Projects/nebrija_1_2_3/src"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/lib/clang/12.0.0/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 ejercicio1"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ejercicio1/fast">
+				<Option output="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/ejercicio1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/callisto/Projects/nebrija_1_2_3/src"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/lib/clang/12.0.0/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 ejercicio1/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="utilities">
+				<Option output="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/libutilities.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/callisto/Projects/nebrija_1_2_3/src"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/lib/clang/12.0.0/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 utilities"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="utilities/fast">
+				<Option output="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/libutilities.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/callisto/Projects/nebrija_1_2_3/src"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/lib/clang/12.0.0/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 utilities/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ejercicio4">
+				<Option output="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/ejercicio4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/callisto/Projects/nebrija_1_2_3/src"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/lib/clang/12.0.0/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 ejercicio4"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ejercicio4/fast">
+				<Option output="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/ejercicio4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/callisto/Projects/nebrija_1_2_3/src"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/lib/clang/12.0.0/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 ejercicio4/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ejercicio5">
+				<Option output="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/ejercicio5" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/callisto/Projects/nebrija_1_2_3/src"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/lib/clang/12.0.0/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 ejercicio5"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ejercicio5/fast">
+				<Option output="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/ejercicio5" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/callisto/Projects/nebrija_1_2_3/src"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/lib/clang/12.0.0/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 ejercicio5/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ejercicio2">
+				<Option output="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/ejercicio2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/callisto/Projects/nebrija_1_2_3/src"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/lib/clang/12.0.0/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 ejercicio2"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ejercicio2/fast">
+				<Option output="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/ejercicio2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/callisto/Projects/nebrija_1_2_3/src"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/lib/clang/12.0.0/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 ejercicio2/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ejercicio3">
+				<Option output="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/ejercicio3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/callisto/Projects/nebrija_1_2_3/src"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/lib/clang/12.0.0/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 ejercicio3"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ejercicio3/fast">
+				<Option output="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/ejercicio3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/callisto/Projects/nebrija_1_2_3/src"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/lib/clang/12.0.0/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 ejercicio3/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/callisto/Projects/nebrija_1_2_3/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/callisto/Projects/nebrija_1_2_3/src/ejercicio1.cpp">
+			<Option target="ejercicio1"/>
+		</Unit>
+		<Unit filename="/home/callisto/Projects/nebrija_1_2_3/src/ejercicio2.cpp">
+			<Option target="ejercicio2"/>
+		</Unit>
+		<Unit filename="/home/callisto/Projects/nebrija_1_2_3/src/ejercicio3.cpp">
+			<Option target="ejercicio3"/>
+		</Unit>
+		<Unit filename="/home/callisto/Projects/nebrija_1_2_3/src/ejercicio4.cpp">
+			<Option target="ejercicio4"/>
+		</Unit>
+		<Unit filename="/home/callisto/Projects/nebrija_1_2_3/src/ejercicio5.cpp">
+			<Option target="ejercicio5"/>
+		</Unit>
+		<Unit filename="/home/callisto/Projects/nebrija_1_2_3/src/utilities.cpp">
+			<Option target="utilities"/>
+		</Unit>
+		<Unit filename="/home/callisto/Projects/nebrija_1_2_3/src/utilities.h">
+			<Option target="utilities"/>
+		</Unit>
+		<Unit filename="/home/callisto/Projects/nebrija_1_2_3/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/callisto/Projects/nebrija_1_2_3/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
