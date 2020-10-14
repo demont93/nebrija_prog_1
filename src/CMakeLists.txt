@@ -1,5 +1,5 @@
-add_library(user_io STATIC user_io.cpp)
-add_library(utilities STATIC utilities.cpp)
+add_library(user_io SHARED user_io.cpp)
+add_library(utilities SHARED utilities.cpp)
 file(GLOB_RECURSE BINS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ejercicio*.cpp)
 foreach(binfile ${BINS})
     string(REPLACE ".cpp" "" finalbin ${binfile})

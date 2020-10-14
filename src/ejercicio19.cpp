@@ -2,7 +2,6 @@
 #include <array>
 #include <vector>
 #include <cassert>
-#include <iostream>
 #include "utilities.h"
 #include "user_io.h"
 
@@ -12,7 +11,7 @@
 
 // Crea la mitad de abajo de el "Sieve of Erathosthenes" para un numero n.
 std::vector<int> Sieve(int for_n) {
-  assert(for_n > 0);
+  assert(for_n > 0 && "Cant compute a sieve for a number of 0 or less");
 
   // Creamos el sieve suponiendo que todos son primos y vamos descartando todos
   // los multiplos de los primos que vayamos obteniendo.
@@ -26,7 +25,7 @@ std::vector<int> Sieve(int for_n) {
   std::size_t max_possible_cursor{static_cast<size_t>(std::sqrt(sieve.size()))};
   while (cursor <= max_possible_cursor) {
     if (sieve[cursor]) {
-      for (std::size_t i{cursor * 2}; i < sieve.size(); i += cursor) {
+      for (std::size_t i{cursor * 2}, e{sieve.size()}; i < e; i += cursor) {
         sieve[i] = false;
       }
     }
@@ -46,7 +45,7 @@ std::vector<int> Sieve(int for_n) {
 // Hace check contra el sieve para ver si el numero es divisible por algun otro
 // mas que el mismo y 1.
 bool IsPrime(int n) {
-  assert(n >= 0);
+  assert(n >= 0 && "IsPrime should not have a negative parameter.");
   if (n == 0 || n == 1) return false;
   std::vector<int> sieve{Sieve(n)};
   bool is_prime{true};
@@ -82,6 +81,7 @@ int main() {
       int n;
       io << "Introduce un entero para saber si es primo: ";
       if (!io.GetInputFromUser()) return 0;
+
       io.Token(n);
       if (IsPrime(n)) {
         io << n << " es primo.\n";
