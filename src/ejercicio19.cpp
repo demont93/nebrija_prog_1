@@ -25,9 +25,8 @@ std::vector<int> Sieve(int for_n) {
   std::size_t max_possible_cursor{static_cast<size_t>(std::sqrt(sieve.size()))};
   while (cursor <= max_possible_cursor) {
     if (sieve[cursor]) {
-      for (std::size_t i{cursor * 2}, e{sieve.size()}; i < e; i += cursor) {
+      for (std::size_t i{cursor * 2}, e{sieve.size()}; i < e; i += cursor)
         sieve[i] = false;
-      }
     }
     ++cursor;
   }
@@ -36,9 +35,8 @@ std::vector<int> Sieve(int for_n) {
   // el vector _sieve_).
   std::vector<int> primes{};
   primes.reserve(max_possible_cursor);
-  for (std::size_t i{0}; i < sieve.size(); ++i) {
+  for (std::size_t i{0}; i < sieve.size(); ++i)
     if (sieve[i]) primes.push_back(i);
-  }
   return primes;
 }
 
@@ -79,15 +77,18 @@ int main() {
   while (true) {
     try {
       int n;
-      io << "Introduce un entero para saber si es primo: ";
-      if (!io.GetInputFromUser()) return 0;
-
+      io << "Introduce un numero natural para saber si es primo: ";
+      if (!io.GetInputFromUser())
+        return 0;
       io.Token(n);
-      if (IsPrime(n)) {
-        io << n << " es primo.\n";
-      } else {
-        io << n << " no es primo.\n";
+      if (n < 0) {
+        io << n << " no es natural.\nIntentalo de nuevo.";
+        continue;
       }
+      if (IsPrime(n))
+        io << n << " es primo.\n";
+      else
+        io << n << " no es primo.\n";
       return 0;
     } catch (std::runtime_error &e) {
       io.Err(e.what());
