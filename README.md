@@ -5,6 +5,27 @@ El proposito inicial de este proyecto, ademas de servir de practica, era ser una
 estudiantes. Para este proposito, he colocado comentarios descriptivos de la sintaxis que no estarian de otra forma
 en el codigo fuente. 
 
+## Como Ejecutar Los Ejercicios
+Estos son los pasos basicos para ejecutar los ejercicios:
+
+1. Crear un directorio donde compilar el programa. Ejemplo linux:
+    ```bash
+    mkdir build
+    cd build/
+    ```
+2. Debes compilar el programa utilizando __[cmake]__(cmake.org). Ejemplo linux:
+    ```bash
+    cmake /path-to/source-dir/ # configure
+    cmake --build . # Compila todos los ejercicios, puedes usar --target ejercicio## para compilar uno especifico
+    ```
+3. Entra en el directorio bin/ y ejecuta el archivo. Ejemplo linux:
+    ```bash
+    bin/ejercicio30
+    ```
+> Nota: El build esta en modo DEBUG para poder correrlo desde entornos de windows sin que se cierre la ventana.
+>       Si el programa no se comporta como esperarias en tu entorno o tu sistema operativo abre un ticket o enviame
+>       un correo electronico a dmontesdeocab@alumnos.nebrija.es
+
 ### Para Los Maestros
 Por cualquiera de las siguientes razones:
 
