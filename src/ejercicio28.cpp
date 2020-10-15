@@ -1,12 +1,10 @@
 #include <cassert>
 #include <iostream>
 
-
-
-void Test() {
-  assert();
-}
+// Crear una función que reciba como parámetro una frase y devuelva un vector
+// que contenga cada palabra por separado.
 
 int main() {
-  Test();
+  std::cout << "Ver ejercicio anterior misma pregunta.\n";
+  return 0;
 }

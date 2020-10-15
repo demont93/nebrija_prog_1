@@ -1,12 +1,11 @@
 #include <cassert>
 #include <iostream>
 
+// Realizar un programa que pida al usuario un número y muestre por pantalla si
+// el número es primo o no.
 
-
-void Test() {
-  assert();
-}
+// Vea ejercicio19
 
 int main() {
-  Test();
+  return 0;
 }

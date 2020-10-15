@@ -1,12 +1,8 @@
-#include <cassert>
 #include <iostream>
 
-
-
-void Test() {
-  assert();
-}
+// Crear una función que reciba un número entero positivo y devuelva un vector
+// son sus factores (ver aquí que son los factores de un número natural).
 
 int main() {
-  Test();
+  std::cout << "Ver ejercicio 24\n";
 }
