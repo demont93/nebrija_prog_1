@@ -5,6 +5,14 @@ El proposito inicial de este proyecto, ademas de servir de practica, era ser una
 estudiantes. Para este proposito, he colocado comentarios descriptivos de la sintaxis que no estarian de otra forma
 en el codigo fuente. 
 
+## Roadmap
+- [ ] Unificar I/O en todos los ejercicios.
+- [x] Terminar Lista 1 de ejercicios.
+- [ ] Terminar Lista 2 de ejercicios.
+- [ ] Terminar Lista 3 de ejercicios.
+- [ ] Agregar comentarios de cabecera en todos los archivos.
+- [ ] Poner los tests por separado en gtest ??????????
+
 ## Como Ejecutar Los Ejercicios
 Estos son los pasos basicos para ejecutar los ejercicios:
 
