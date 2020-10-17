@@ -1,29 +1,28 @@
+//===-- ejercicio17.cpp -----------------------------------------*- C++ -*-===//
+//
+// Ejercicio17
+// Pedir tres números al usario: _a_, _b_ y _c_. Crear un vector que contenga
+// todos los números múltiplos de _c_ que hay entre [_a_, _b_].
+// Restricciones : a <= b
+//                 0 < a, b, c <= 2^31
+//
+//===----------------------------------------------------------------------===//
+
 #include <cassert>
 #include <vector>
 #include <cmath>
 #include "utilities.h"
 #include "user_io.h"
 
-
-// Ejercicio17
-// Pedir tres números al usario: _a_, _b_ y _c_. Crear un vector que contenga
-// todos los números múltiplos de _c_ que hay entre _a_ y _b_ (incluídos).
-// Assume : a <= b
-//          0 < a, b, c <= 2^31
-
 std::vector<int> MultiplesOfBetween(int multiples_of, int from, int to) {
   assert(multiples_of > 0 && from > 0 && to > 0);
   assert(from <= to);
-
   std::vector<int> new_v{};
-
   // Empezamos por el primer multiplo >= _to_
   int multiple =
-    std::ceil(from / static_cast<double>(multiples_of)) * multiples_of;
-  while (multiple <= to) {
+    int(std::ceil(from / static_cast<double>(multiples_of)) * multiples_of);
+  for (; multiple <= to; multiple += multiples_of)
     new_v.push_back(multiple);
-    multiple += multiples_of; // siguiente multiplo
-  }
   return new_v;
 }
 

@@ -1,21 +1,22 @@
+//===-- ejercicio9.cpp ------------------------------------------*- C++ -*-===//
 //
-// Created by demont93 on 10/10/20.
+// Ejercicio9
+// Crear un array de números enteros e indicar cuántas veces aparece el número
+// 7.
 //
+//===----------------------------------------------------------------------===//
 
 #include <iostream>
 #include <cassert>
 #include <array>
+#include "user_io.h"
+#include "utilities.h"
 
-// Ejercicio9
-// Crear un array de números enteros e indicar cuántas veces aparece el número 7.
 template<std::size_t SIZE>
 std::size_t Times7(const std::array<int, SIZE> &arr) {
   std::size_t counter{0};
-  for (std::size_t i{0}; i < arr.size(); ++i) {
-    if (arr[i] == 7) {
-      ++counter;
-    }
-  }
+  for (const int &n : arr)
+    if (n == 7) ++counter;
   return counter;
 }
 
@@ -34,11 +35,8 @@ void Test() {
 
 int main() {
   // Test();
+  UserIO io;
   std::array arr{3, 7, 5, 7, 7, 7, 3};
-  std::cout << "Hay exactamente " << Times7(arr)
-            << " '7's en el array ";
-  for (int i{0}; i < 7; ++i) {
-    std::cout << arr[i] << " ";
-  }
-  std::cout << std::endl;
+  io << "Hay exactamente " << Times7(arr) << " '7's en el array "
+     << CollectionString(arr.begin(), arr.end()) << '\n';
 }

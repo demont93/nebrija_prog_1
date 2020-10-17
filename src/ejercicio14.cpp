@@ -1,23 +1,21 @@
+//===-- ejercicio14.cpp -----------------------------------------*- C++ -*-===//
 //
-// Created by callisto on 10/11/20.
-//
-
-#include <iostream>
-#include <cassert>
-#include <vector>
-#include "utilities.h"
-
 // Ejercicio14
 // Usando `for elem:vec`. A partir de un vector de números enteros, crear otro
 // que contenga sólo los números pares. Por ejemplo, a partir de {1,3,4,5,6,7}
 // se crea -> {4,6}.
+//
+//===----------------------------------------------------------------------===//
+
+#include <cassert>
+#include <vector>
+#include "utilities.h"
+#include "user_io.h"
+
 std::vector<int> Evens(const std::vector<int> &v) {
   std::vector<int> new_v{};
-  for (const int &n : v) {
-    if (n % 2 == 0) {
-      new_v.push_back(n);
-    }
-  }
+  for (const int &n : v)
+    if (n % 2 == 0) new_v.push_back(n);
   return new_v;
 }
 
@@ -33,11 +31,11 @@ void Test() {
 
 int main() {
   // Test();
-  std::cout << "A partir del vector ";
+  UserIO io;
   std::vector given{1,3,4,5,6,7};
-  PrintCollection(given.begin(), given.end());
-  std::cout << ", sacamos los numeros pares: ";
   std::vector result{Evens(given)};
-  PrintCollection(result.begin(), result.end());
-  std::cout << std::endl;
+  io << "A partir del vector "
+     << CollectionString(given.begin(), given.end())
+     << ", sacamos los numeros pares: "
+     << CollectionString(result.begin(), result.end()) << '\n';
 }

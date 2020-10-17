@@ -1,23 +1,27 @@
+//===-- ejercicio10.cpp -----------------------------------------*- C++ -*-===//
 //
-// Created by demont93 on 10/10/20.
-//
-
-#include <iostream>
-#include <cassert>
-#include "utilities.h"
-#include <array>
-
 // Ejercicio10
 // Crear un programa que calcule la media de un array de números enteros.
-// Constraints sum of arr < 2^31
+// Restricciones:  Suma del array < 2^31
+//
+//===----------------------------------------------------------------------===//
+
+#include <cassert>
+#include <array>
+#include "utilities.h"
+#include "user_io.h"
+
 template<std::size_t SIZE>
 double MeanArr(const std::array<int, SIZE> &arr) {
-  // cual es el promedio de un array vacio? tambien podriamos retornar nullopt
+  // Cual es el promedio de un array vacio? tambien podriamos retornar option
   if (SIZE <= 0) return 0;
   int sum{0};
   for (const int &elem : arr)
     sum += elem;
-  // static cast a double para recibir double
+  // Static cast a double para recibir double
+  // Es bueno usar static_cast para poder ver explicitamente donde se hacen las
+  // conversiones. Los bugs de producidos por casteos implicitos son muy
+  // dificiles de encontrar y entender.
   return sum / static_cast<double>(SIZE);
 }
 
@@ -32,10 +36,10 @@ void Test() {
 }
 
 int main() {
-  Test();
+  // Test();
+  UserIO io;
   std::array arr{1, 2, 3, 4, 532, 6, 134};
-  std::cout << "La media aritmetica de ";
-  PrintCollection(arr.begin(), arr.end());
-  std::cout << " es: " << MeanArr(arr) << std::endl;
+  io << "La media aritmetica de " << CollectionString(arr.begin(), arr.end())
+     << " es: " << MeanArr(arr) << '\n';
 }
 

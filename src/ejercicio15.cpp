@@ -1,11 +1,17 @@
+//===-- ejercicio15.cpp -----------------------------------------*- C++ -*-===//
+//
+// Ejercicio15
+// Usando `while`. A partir de un vector de números enteros, crear
+// otro que contenga sólo los números pares. Por ejemplo, a partir de
+// {1,3,4,5,6,7} se crea -> {4,6}.
+//
+//===----------------------------------------------------------------------===//
+
 #include <cassert>
-#include <iostream>
 #include <vector>
 #include "utilities.h"
+#include "user_io.h"
 
-// Ejercicio15
-// Usando `while`. A partir de un vector de números enteros, crear otro que contenga
-// sólo los números pares. Por ejemplo, a partir de {1,3,4,5,6,7} se crea -> {4,6}.
 std::vector<int> WhileEvens(const std::vector<int> &v) {
   std::vector<int> new_vec;
   std::size_t i{0};
@@ -27,11 +33,11 @@ void Test() {
 
 int main() {
   // Test();
-  std::cout << "A partir del vector: ";
+  UserIO io;
   std::vector given{1,3,4,5,6,7};
-  PrintCollection(given.begin(), given.end());
-  std::cout << ", sacamos los numeros pares: ";
   std::vector result{WhileEvens(given)};
-  PrintCollection(result.begin(), result.end());
-  std::cout << std::endl;
+  io << "A partir del vector: "
+     << CollectionString(given.begin(), given.end())
+     << ", sacamos los numeros pares: "
+     << CollectionString(result.begin(), result.end()) << '\n';
 }

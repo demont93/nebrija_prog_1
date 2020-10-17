@@ -1,3 +1,11 @@
+//===-- ejercicio19.cpp -----------------------------------------*- C++ -*-===//
+//
+// Ejercicio19
+// Pedir al usuario un número y mostrar por pantalla si dicho número es primo o
+// no (usando el bucle while).
+//
+//===----------------------------------------------------------------------===//
+
 #include <cmath>
 #include <array>
 #include <vector>
@@ -5,11 +13,12 @@
 #include "utilities.h"
 #include "user_io.h"
 
-// Ejercicio19
-// Pedir al usuario un número y mostrar por pantalla si dicho número es primo o
-// no (usando el bucle while).
 
 // Crea la mitad de abajo de el "Sieve of Erathosthenes" para un numero n.
+// https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+// Para saber si el numero es primo, solo necesitamos la tabla del tamano de la
+// raiz de n. Para Obtener todos los primos de la tabla solo necesitamos la raiz
+// del tamano de la tabla.
 std::vector<int> Sieve(int for_n) {
   assert(for_n > 0 && "Cant compute a sieve for a number of 0 or less");
 
@@ -35,7 +44,7 @@ std::vector<int> Sieve(int for_n) {
   // el vector _sieve_).
   std::vector<int> primes{};
   primes.reserve(max_possible_cursor);
-  for (std::size_t i{0}; i < sieve.size(); ++i)
+  for (std::size_t i{0}, e{sieve.size()}; i < e; ++i)
     if (sieve[i]) primes.push_back(i);
   return primes;
 }

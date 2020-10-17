@@ -1,14 +1,17 @@
+//===-- ejercicio20.cpp -----------------------------------------*- C++ -*-===//
+//
+// Ejercicio20
+// Pedir al usuario que introduzca una cadena de texto por teclado, almacenarla
+// en un std::string, crear a continuación un std::vector que contenga cada una
+// de las palabras de la cadena por separado.
+//
+//===----------------------------------------------------------------------===//
+
 #include <cassert>
 #include <iostream>
 #include <vector>
 #include "utilities.h"
 #include "user_io.h"
-
-
-// Ejercicio20
-// Pedir al usuario que introduzca una cadena de texto por teclado, almacenarla
-// en un std::string, crear a continuación un std::vector que contenga cada una
-// de las palabras de la cadena por separado.
 
 std::vector<std::string> StringToWordVector(const std::string &sentence) {
   constexpr const char k_space_char = ' ';

@@ -1,24 +1,23 @@
+//===-- ejercicio8.cpp ------------------------------------------*- C++ -*-===//
 //
-// Created by demont93 on 10/10/20.
-//
-
-#include <iostream>
-#include <sstream>
-#include <cassert>
-
 // Ejercicio8
 // Pedir al usuario que introduzca un texto por teclado y mostrar todas las
 // palabras que empiecen por "a".
-int TimesBeginA(
-  const std::string &line) { // const para asegurarnos que no cambie el string
+//
+//===----------------------------------------------------------------------===//
+
+#include <iostream>
+#include <cassert>
+#include "user_io.h"
+
+// Const para asegurarnos que no cambie el string.
+int TimesBeginA(const std::string &line) {
+  // Usamos un stringstream para poder sacar las palabras con _>>_.
   std::stringstream ss{line}; // copiar a un stringstream
-  int counter{0};
   std::string word{};
-  while (ss >> word) { // sacar input hasta final de la linea
-    if (word.front() == 'a' || word.front() == 'A') {
-      ++counter;
-    }
-  }
+  int counter{0};
+  while (ss >> word)  // sacar input hasta final de la linea
+    if (word.front() == 'a' || word.front() == 'A') ++counter;
   return counter;
 }
 
@@ -32,9 +31,12 @@ void Test() {
 }
 
 int main() {
-//    Test();
-  std::cout << "Introduce una linea de texto: ";
+  // Test();
+  UserIO io;
+  io << "Introduce una linea de texto: ";
+  if (!io.GetInputFromUser()) return 0;
   std::string user_input{};
-  getline(std::cin, user_input);
-  std::cout << TimesBeginA(user_input) << std::endl;
+  io.GetLine(user_input);
+  io << "Palabras que comienzan con 'a' o 'A': "
+     <<TimesBeginA(user_input) << '\n';
 }

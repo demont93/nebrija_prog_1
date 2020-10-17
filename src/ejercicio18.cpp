@@ -1,28 +1,31 @@
+//===-- ejercicio18.cpp -----------------------------------------*- C++ -*-===//
+//
+// Ejercicio18
+// A partir de un vector de std::string crear otro vector que contenga sólo los
+// elementos que aparece después del std::string "guardar". Por ejemplo, para el
+// vector {"perro", "gato", "guardar", "andres", "luis", "guardar", "botella"}
+// crearía otro vector conteniendo {"andres", "botella"}.
+//
+//===----------------------------------------------------------------------===//
+
 #include <cassert>
 #include <iostream>
 #include <vector>
 #include "utilities.h"
 #include "user_io.h"
 
-// Ejercicio18
-// A partir de un vector de std::string crear otro vector que contenga sólo los
-// elementos que aparece después del std::string "guardar". Por ejemplo, para el
-// vector {"perro", "gato", "guardar", "andres", "luis", "guardar", "botella"}
-// crearía otro vector conteniendo {"andres", "botella"}.
-
 constexpr const char *const kSaveWord{"guardar"};
 
+// Las palabras muy utilizadas en programacion ayudan a entender el codigo como
+// needle and haystack (aguja y pajar). Tengo un vector de agujas y tengo un
+// pajar. Cada vez que encuentro una aguja la guardo.
 std::vector<std::string>
 ElemsAfterSave(const std::vector<std::string> &haystack) {
   std::vector<std::string> needles{};
-  for (std::size_t i{0}; i < haystack.size(); ++i) {
-    try {
-      const std::string &word = haystack[i];
-      if (word == kSaveWord) needles.push_back(haystack.at(i + 1));
-    } catch (std::out_of_range &e) {
-      break;
-    }
-  }
+  // Iteramos todos menos 1, no importa si el ultimo dice guardar
+  for (std::size_t i{0}, e{haystack.size() - 1}; i < e; ++i)
+    if (haystack[i] == kSaveWord)
+      needles.push_back(haystack.at(i + 1));
   return needles;
 }
 
