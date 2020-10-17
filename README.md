@@ -1,17 +1,16 @@
 # Ejercicios Programación1
 Universidad Antonio de Nebrija.
 
-El propósito inicial de este proyecto, además de servir de práctica, era ser una referencia para otros
-estudiantes. Para este último propósito, he colocado comentarios descriptivos de la sintaxis que no estarían de otra forma
-en el código fuente. 
+El propósito inicial de este proyecto, además de servir de práctica, era ser una referencia para otros estudiantes. ~~Para este último propósito, he colocado comentarios descriptivos de la sintaxis que no estarían de otra forma en el código fuente.~~ Sin embargo, el proposito del proyecto ha cambiado a ser unicamente producir codigo eficiente y rapido con sintaxis moderna de C++ con el unico objetivo de aprender nuevas construcciones. Es posible que muchos problemas sufran de pre-optimizaciones, dicho esto, todas las sugerencias son bien recibidas.
 
 ## Roadmap
-- [ ] Unificar I/O en todos los ejercicios.
+- [x] Unificar I/O en todos los ejercicios.
 - [x] Terminar Lista 1 de ejercicios.
 - [ ] Terminar Lista 2 de ejercicios.
 - [ ] Terminar Lista 3 de ejercicios.
-- [ ] Agregar comentarios de cabecera en todos los archivos.
-- [ ] Poner los tests por separado en gtest ??????????
+- [x] Agregar comentarios de cabecera en todos los archivos.
+- [ ] Agregar los tests a un sistema automatizado.
+- [ ] Incorporar benchmarks y profiling.
 
 ## Como Ejecutar Los Ejercicios
 Estos son los pasos básicos para ejecutar los ejercicios:
@@ -21,7 +20,7 @@ Estos son los pasos básicos para ejecutar los ejercicios:
     mkdir build
     cd build/
     ```
-2. Debes compilar el programa utilizando [__cmake__](cmake.org). Ejemplo Linux:
+2. Debes compilar el programa utilizando [__cmake__](https://cmake.org). Ejemplo Linux:
     ```bash
     cmake /path-to/source-dir/ # configure
     cmake --build . # Compila todos los ejercicios
@@ -43,14 +42,10 @@ Por cualquiera de las siguientes razones:
 * Sugerencia de estilo.
 * Traducción a otro idioma.
 * Sugerencia para mejorar o expandir el proyecto.
-* Simplificar el código.
 
 Me pueden contactar a mi correo de la Universidad: dmontesdeocab@alumnos.nebrija.es
 
-### Para Los Estudiantes
-Si quieres colaborar, basta con hacer un fork, un nuevo branch y un pull request. Este proyecto esta mas que abierto
-para colaboración y sugerencias.
-
-Si encuentras un error también puedes abrir un issue en la pagina de GitHub: https://github.com/demont93/nebrija_prog_1
+~~### Para Los Estudiantes~~
+~~Si quieres colaborar, basta con hacer un fork, un nuevo branch y un pull request. Este proyecto esta mas que abierto para colaboración y sugerencias. Si encuentras un error también puedes abrir un issue en la pagina de GitHub: https://github.com/demont93/nebrija_prog_1~~
 
 Gracias.
