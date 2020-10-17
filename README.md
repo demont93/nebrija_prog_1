@@ -30,9 +30,7 @@ Estos son los pasos básicos para ejecutar los ejercicios:
     ```bash
     bin/ejercicio30
     ```
-> Nota: El build esta en modo DEBUG para poder correrlo desde entornos de Windows sin que se cierre la ventana.
->       Si el programa no se comporta como esperarías en tu entorno o tu sistema operativo abre un ticket o envíame
->       un correo electrónico a dmontesdeocab@alumnos.nebrija.es
+> Nota: El build esta en modo DEBUG para poder correrlo desde entornos de Windows sin que se cierre la ventana. Si el programa no se comporta como esperarías en tu entorno o tu sistema operativo abre un ticket o envíame un correo electrónico a dmontesdeocab@alumnos.nebrija.es
 
 ### Para Los Maestros
 Por cualquiera de las siguientes razones:
