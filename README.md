@@ -27,7 +27,7 @@ Estos son los pasos básicos para compilar los ejercicios:
     ### Configurar
     1. Si ya tienes instalado doctest:
     ```bash
-    cmake /path-to/source-dir/ # configure
+    cmake /path-to/source-dir/
     ```
     2. Si prefieres que se instale por Git (debes tener git instalado).
     ```bash
@@ -36,8 +36,8 @@ Estos son los pasos básicos para compilar los ejercicios:
    
    ### Compilar
     ```bash
-    cmake --build . # Compila todos los ejercicios
     # puedes usar --target ejercicioXX para compilar uno especifico
+    cmake --build . 
     ```
 3. Entra en el directorio bin/ y ejecuta el archivo. Ejemplo linux:
     ```bash
