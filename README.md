@@ -22,7 +22,9 @@ Estos son los pasos básicos para compilar los ejercicios:
     mkdir build
     cd build/
     ```
-2. Debes compilar el programa utilizando [__cmake__](https://cmake.org). Ejemplo Linux:
+2. Debes configurar y compilar el programa utilizando [__cmake__](https://cmake.org). Ejemplo Linux:
+    
+    ### Configurar
     1. Si ya tienes instalado doctest:
     ```bash
     cmake -DDOWNLOAD_DOCTEST /path-to/source-dir/
@@ -32,6 +34,7 @@ Estos son los pasos básicos para compilar los ejercicios:
     cmake /path-to/source-dir/ # configure
     ```
    
+   ### Compilar
     ```bash
     cmake --build . # Compila todos los ejercicios
     # puedes usar --target ejercicioXX para compilar uno especifico
