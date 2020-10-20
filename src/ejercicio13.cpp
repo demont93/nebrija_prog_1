@@ -34,8 +34,8 @@ std::vector<std::string> ContainsA(const std::string &s) {
     return isspace(*it) && !cur_char_is_space;
   }};
   auto is_in_middle_of_word{
-  [&cur_char_is_space]() { return !cur_char_is_space; }};
-  auto word_is_starting{[](auto it) { return !isspace(*it); }};
+    [&cur_char_is_space]() { return !cur_char_is_space; }};
+  auto word_is_starting{[](const char &c) { return !isspace(c); }};
 
   // Main loop
   for (auto it{s.begin()}, e{s.end()}; it != e; ++it) {
@@ -46,8 +46,8 @@ std::vector<std::string> ContainsA(const std::string &s) {
         words_with_a.emplace_back(std::string(word_begin, word_end));
       }
     } else if (is_in_middle_of_word()) {
-      has_a = !has_a && CharIsA(*it);
-    } else if (word_is_starting(it)) {
+      has_a = has_a || CharIsA(*it);
+    } else if (word_is_starting(*it)) {
       cur_char_is_space = false;
       word_begin = it;
       has_a = CharIsA(*it);
@@ -60,11 +60,11 @@ std::vector<std::string> ContainsA(const std::string &s) {
 }
 
 TEST_CASE ("test ContainsA") {
-  CHECK(ContainsA("This text contains 3 words with an 'A'") ==
-        (std::vector<std::string>{"contains", "an", "'A'"}));
-  CHECK(ContainsA("").empty());
-  CHECK(ContainsA("aaaaaaaaaaaaaaaaaaaaaa") ==
-        std::vector<std::string>{"aaaaaaaaaaaaaaaaaaaaaa"});
+    CHECK_EQ(ContainsA("This text contains 3 words with an 'A'"),
+             (std::vector<std::string>{"contains", "an", "'A'"}));
+    CHECK(ContainsA("").empty());
+    CHECK_EQ(ContainsA("aaaaaaaaaaaaaaaaaaaaaa"),
+             std::vector<std::string>{"aaaaaaaaaaaaaaaaaaaaaa"});
 }
 
 int main(int argc, char **argv) {
