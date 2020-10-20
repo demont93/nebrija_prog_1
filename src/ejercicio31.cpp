@@ -1,50 +1,98 @@
+//===-- ejercicio31.cpp -----------------------------------------*- C++ -*-===//
+///
+/// \file
+/// Ejercicio31
+/// -----------
+/// Crear una función que devuelva un vector con los n primeros números primos.
+/// El número n se le debe pasar a la función como parámetro.
+///
+//===----------------------------------------------------------------------===//
+
+#define DOCTEST_CONFIG_IMPLEMENT
+
 #include <cassert>
-#include <iostream>
 #include <vector>
 #include <cmath>
 #include "utilities.h"
+#include "doctest.h"
+#include "user_io.h"
 
-// Ejercicio31
-// Crear una función que devuelva un vector con los n primeros números primos.
-// El número n se le debe pasar a la función como parámetro.
+class Sieve {
+ public:
+  Sieve() = delete;
 
-// Crea la mitad de abajo de el "Sieve of Erathosthenes" para un numero n.
-std::vector<int> Sieve(int for_n) {
-  assert(for_n > 0 && "Cant compute a sieve for a number of 0 or less");
+  explicit Sieve(std::vector<bool> &&table) : table{table} {
+    if (table.empty())
+      throw std::runtime_error(
+        "No se puede construir un sieve de una tabla vacia");
+  };
 
-  // Creamos el sieve suponiendo que todos son primos y vamos descartando todos
-  // los multiplos de los primos que vayamos obteniendo.
-  std::vector<bool> sieve(for_n + 1, true);
-  sieve[0] = false; // 0 y 1 no son primos por definicion
-  sieve[1] = false;
-
-  // Vamos recorriendo el array buscando primos para descartar elementos del
-  // sieve.
-  std::size_t cursor{2};
-  std::size_t max_possible_cursor{static_cast<size_t>(std::sqrt(sieve.size()))};
-  while (cursor <= max_possible_cursor) {
-    if (sieve[cursor]) {
-      for (std::size_t i{cursor * 2}, e{sieve.size()}; i < e; i += cursor)
-        sieve[i] = false;
-    }
-    ++cursor;
+  static Sieve WithSize(const size_t size) {
+    return Sieve{MakeSieve(size)};
   }
 
-  // Creamos un vector para almacenar los primos (los indices con valor true en
-  // el vector _sieve_).
-  std::vector<int> primes{};
-  primes.reserve(max_possible_cursor);
-  for (std::size_t i{0}; i < sieve.size(); ++i)
-    if (sieve[i]) primes.push_back(i);
-  return primes;
+  [[nodiscard]] bool IsPrime(const size_t n) const {
+    return table.at(n);
+  }
+
+  [[nodiscard]] bool IsPrimeUnchecked(const size_t n) const noexcept {
+    return table[n];
+  }
+
+  [[nodiscard]] size_t MaxPossiblePrime() const noexcept {
+    return table.size() - 1;
+  }
+
+ private:
+  const std::vector<bool> table;
+
+  static std::vector<bool> MakeSieve(size_t for_n) {
+    assert(for_n >= 0 && "Cant compute a sieve for a number less than 0");
+    // Special cases
+    if (for_n == 0) return {false};
+    if (for_n == 1) return {false, false};
+
+    // To get all sieve primes, only need to loop until sqrt of n
+    auto up_to{static_cast<size_t>(ceil(sqrt(static_cast<double>(for_n)))) + 1};
+
+    std::vector<bool> sieve(for_n + 1, true);
+    sieve[0] = false;
+    sieve[1] = false;
+
+    for (size_t i{0}; i <= up_to; ++i) {
+      if (sieve[i]) {
+        for (size_t k{i * 2}; k <= for_n; k += i)
+          sieve[k] = false;
+      }
+    }
+
+    return sieve;
+  }
+};
+
+template<typename T>
+void PrimesUpTo(size_t up_to, T &output) {
+  Sieve s{Sieve::WithSize(up_to)};
+  std::vector<size_t> result;
+  for (size_t n{0}; n <= up_to; ++n)
+    if (s.IsPrimeUnchecked(n)) output << n << '\n';
 }
 
-void Test() {
-  assert(Sieve(14) == (std::vector<int> {2,3,5,7,11,13}));
-  assert(Sieve(30) == (std::vector<int> {2,3,5,7,11,13,17,19,23,29}));
-  assert(Sieve(2) == std::vector<int>{2});
-}
+int main(int argc, char **argv) {
+  doctest::Context ctx;
+  ctx.setOption("abort-after", 5);
+  ctx.applyCommandLine(argc, argv);
+  ctx.setOption("no-breaks", true);
+  int res = ctx.run();
+  if (ctx.shouldExit())
+    return res;
 
-int main() {
-  Test();
+  UserIO io;
+  io << "Enter a number:\n";
+  if (!io.GetInputFromUser()) return res;
+  size_t n;
+  io.Token(n);
+  io << "Primes up to " << n << ":\n";
+  PrimesUpTo(n, io);
+  return res;
 }

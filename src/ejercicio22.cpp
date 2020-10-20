@@ -1,6 +1,8 @@
 //===-- ejercicio22.cpp -----------------------------------------*- C++ -*-===//
 ///
 /// \file
+/// Ejercicio22
+/// -----------
 /// Crear un programa que calcule los n primeros números de la Serie de
 /// Fibonacci. El programa debe pedir al usuarios cuántos números desea calcular,
 /// y continuación estos se deben calcular y almacenar en el tipo de datos
