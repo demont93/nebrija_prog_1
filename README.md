@@ -9,11 +9,13 @@ El propósito inicial de este proyecto, además de servir de práctica, era ser 
 - [ ] Terminar Lista 2 de ejercicios.
 - [ ] Terminar Lista 3 de ejercicios.
 - [x] Agregar comentarios de cabecera en todos los archivos.
-- [ ] Agregar los tests a un sistema automatizado.
-- [ ] Incorporar benchmarks y profiling.
+- [x] Agregar los tests a un sistema automatizado.
 
-## Como Ejecutar Los Ejercicios
-Estos son los pasos básicos para ejecutar los ejercicios:
+## Instalacion
+
+Para compilar los ejercicios es necesario [__doctest__](https://github.com/onqtam/doctest). Puedes descargarlo o puedes habilitarlo en cmake como indica abajo.
+
+Estos son los pasos básicos para compilar los ejercicios:
 
 1. Crear un directorio donde compilar el programa. Ejemplo Linux:
     ```bash
@@ -21,14 +23,22 @@ Estos son los pasos básicos para ejecutar los ejercicios:
     cd build/
     ```
 2. Debes compilar el programa utilizando [__cmake__](https://cmake.org). Ejemplo Linux:
+    1. Si ya tienes instalado doctest:
+    ```bash
+    cmake -DDOWNLOAD_DOCTEST /path-to/source-dir/
+    ```
+    2. Si prefieres que se instale por Git (debes tener git instalado).
     ```bash
     cmake /path-to/source-dir/ # configure
+    ```
+   
+    ```bash
     cmake --build . # Compila todos los ejercicios
     # puedes usar --target ejercicioXX para compilar uno especifico
     ```
 3. Entra en el directorio bin/ y ejecuta el archivo. Ejemplo linux:
     ```bash
-    bin/ejercicio30
+    ./ejercicio30
     ```
 > Nota: El build esta en modo DEBUG para poder correrlo desde entornos de Windows sin que se cierre la ventana. Si el programa no se comporta como esperarías en tu entorno o tu sistema operativo abre un ticket o envíame un correo electrónico a dmontesdeocab@alumnos.nebrija.es
 
