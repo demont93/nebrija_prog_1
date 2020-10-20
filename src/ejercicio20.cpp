@@ -1,15 +1,20 @@
 //===-- ejercicio20.cpp -----------------------------------------*- C++ -*-===//
-//
-// Ejercicio20
-// Pedir al usuario que introduzca una cadena de texto por teclado, almacenarla
-// en un std::string, crear a continuación un std::vector que contenga cada una
-// de las palabras de la cadena por separado.
-//
+///
+/// \file
+/// Ejercicio20
+/// -----------
+/// Pedir al usuario que introduzca una cadena de texto por teclado, almacenarla
+/// en un std::string, crear a continuación un std::vector que contenga cada una
+/// de las palabras de la cadena por separado.
+///
 //===----------------------------------------------------------------------===//
+
+#define DOCTEST_CONFIG_IMPLEMENT
 
 #include <cassert>
 #include <iostream>
 #include <vector>
+#include "doctest.h"
 #include "utilities.h"
 #include "user_io.h"
 
@@ -36,7 +41,7 @@ std::vector<std::string> StringToWordVector(const std::string &sentence) {
   return words;                                       // devolvemos el resultado
 }
 
-void Test() {
+TEST_CASE("test StringToWordVector") {
   using words = std::vector<std::string>;
   assert(StringToWordVector("").empty());
   assert(StringToWordVector("hola") == words{"hola"});
@@ -49,8 +54,15 @@ void Test() {
          words{"d"});
 }
 
-int main() {
-  // Test();
+int main(int argc, char **argv) {
+  doctest::Context ctx;
+  ctx.setOption("abort-after", 5);
+  ctx.applyCommandLine(argc, argv);
+  ctx.setOption("no-breaks", true);
+  int res = ctx.run();
+  if (ctx.shouldExit())
+    return res;
+
   UserIO io{};
   io << "Introduce una oracion: \n";
   if (!io.GetInputFromUser()) return 0;
@@ -60,4 +72,5 @@ int main() {
   io << "Palabras sin espacio:\n"
      << CollectionString(words.begin(), words.end())
      << '\n';
+  return res;
 }

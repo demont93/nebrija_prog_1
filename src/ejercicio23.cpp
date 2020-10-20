@@ -1,9 +1,17 @@
+//===-- ejercicio23.cpp -----------------------------------------*- C++ -*-===//
+///
+/// \file
+/// Realizar un programa que pida al usuario un número y muestre por pantalla su
+/// factorial.
+///
+//===----------------------------------------------------------------------===//
+
+#define DOCTEST_CONFIG_IMPLEMENT
+
 #include <cassert>
 #include <iostream>
 #include "user_io.h"
-
-// Realizar un programa que pida al usuario un número y muestre por pantalla su
-// factorial.
+#include "doctest.h"
 
 std::int64_t Factorial(int n) {
   assert(n <= 20 && n >= 0);
@@ -16,15 +24,22 @@ std::int64_t Factorial(int n) {
   return accumulator;
 };
 
-void Test() {
+TEST_CASE ("test Factorial") {
   assert(Factorial(0) == 1);
   assert(Factorial(1) == 1);
   assert(Factorial(20) == 2432902008176640000);
   assert(Factorial(10) == 3628800);
 }
 
-int main() {
-  // Test();
+int main(int argc, char **argv) {
+  doctest::Context ctx;
+  ctx.setOption("abort-after", 5);
+  ctx.applyCommandLine(argc, argv);
+  ctx.setOption("no-breaks", true);
+  int res = ctx.run();
+  if (ctx.shouldExit())
+    return res;
+
   UserIO io{};
   while (true) {
     try {
@@ -38,7 +53,7 @@ int main() {
       } else {
         io << "Factorial de " << n << ": "
            << Factorial(n) << '\n';
-        return 0;
+        return res;
       }
     } catch (std::runtime_error &e) {
       io.Err(e.what());

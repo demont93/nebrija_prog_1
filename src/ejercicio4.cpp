@@ -1,54 +1,62 @@
 //===-- ejercicio4.cpp ------------------------------------------*- C++ -*-===//
-//
-// Ejercicio4
-// Pedir al usuario que introduzca un texto por teclado. Comprobar si el texto
-// contiene la palabra "password" y en caso de que la contenga mostrar por
-// pantalla la palabra que haya a continuación.
-//
+///
+/// \file
+/// Ejercicio4
+/// ----------
+/// Pedir al usuario que introduzca un texto por teclado. Comprobar si el texto
+/// contiene la palabra "password" y en caso de que la contenga mostrar por
+/// pantalla la palabra que haya a continuación.
+///
 //===----------------------------------------------------------------------===//
 
+#define DOCTEST_CONFIG_IMPLEMENT
+
+#include <cstring>
 #include <iostream>
-#include <cassert>
 #include "user_io.h"
+#include "doctest.h"
 
-// En este caso he decidido retornar un std::string en vez de imprimir directo
-// a un stream debido a que podriamos reusar alguna de esta logica mas adelante.
 std::string GetPassword(const std::string &s) {
-  std::stringstream ss{s};
-  std::string word{};
-  while (ss >> word) { // extrae palabras hasta fallar
-    if (word == "password") {
-      if (ss >> word) return word; // si hay palabra despues de passwd, imprime
-      else return "";
+  char ss[s.size()+1];
+  strcpy(ss, s.c_str());
+  const char *delim{" \t\r\n\v\f"};
+  const char *word{strtok(ss, delim)};
+  while (word != nullptr) {
+    if (strcmp(word, "password") == 0) {
+      word = strtok(nullptr, " ");
+      if (word != nullptr) return {word};
+      else return {};
     }
+    word = strtok(nullptr, " ");
   }
-  return "";
+  return {};
 }
 
-void Test() {
-  // Las pruebas que hagamos tienen que tratar de romper el programa. Es
-  // importante volverse experto rompiendo programas, ya que es la mejor forma
-  // de entrenarse para que tus trabajos sean solidos, libres de bugs, y
-  // seguros.
-  assert(GetPassword("").empty());
-  assert(GetPassword("passwrd hjello1234").empty());
-  assert(GetPassword("password 1234") == "1234");
-  assert(GetPassword("lkdjf kd 3 aaa password big password small") == "big");
+TEST_CASE("test password") {
+  CHECK(GetPassword("").empty());
+  CHECK(GetPassword("passwrd hjello1234").empty());
+  CHECK_EQ(GetPassword("password 1234"), "1234");
+  CHECK_EQ(GetPassword("lkdjf kd 3 aaa password big password small"), "big");
+  CHECK(GetPassword("apassword &&&&").empty());
 }
 
-int main() {
-  // Test();
+int main(int argc, char **argv) {
+  doctest::Context ctx;
+  ctx.setOption("abort-after", 5);
+  ctx.applyCommandLine(argc, argv);
+  ctx.setOption("no-breaks", true);
+  int res = ctx.run();
+  if (ctx.shouldExit())
+    return res;
+
   UserIO io;
   io << "No introduzcas una contrasena verdadera!\n"
      << "Introduce un texto y guardare la palabra despues de 'password': ";
   std::string user_input;
-  // GetInputFromUser tiene la anotacion [[nodiscard]] la cual significa que si
-  // descartamos el retorno de la funcion, el compilador nos dara una
-  // advertencia.
   if (!io.GetInputFromUser()) return 0;
   io.GetLine(user_input);
-  // La razon por la cual utilizo el '\n' en vez de std::endl es porque endl,
-  // ademas de hacer un newline, tambien invoca un flush(). Muchas veces no
-  // buscamos este comportamiento, pero lo introducimos sin darnos cuenta.
-  io << "La palabra guardada fue: " << GetPassword(user_input) << '\n';
+  std::string result{GetPassword(user_input)};
+  if (result.empty()) io << "No se guardo ninguna palabra.\n";
+  else io << "La palabra guardada fue: " << result << '\n';
+  return res;
 }

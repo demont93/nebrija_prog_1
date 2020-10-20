@@ -1,87 +1,74 @@
 //===-- ejercicio19.cpp -----------------------------------------*- C++ -*-===//
-//
-// Ejercicio19
-// Pedir al usuario un número y mostrar por pantalla si dicho número es primo o
-// no (usando el bucle while).
-//
+///
+/// \file
+/// Ejercicio19
+/// -----------
+/// Pedir al usuario un número y mostrar por pantalla si dicho número es primo o
+/// no (usando el bucle while).
+///
 //===----------------------------------------------------------------------===//
+
+#define DOCTEST_CONFIG_IMPLEMENT
 
 #include <cmath>
 #include <array>
 #include <vector>
 #include <cassert>
+#include "doctest.h"
 #include "utilities.h"
 #include "user_io.h"
 
 
-// Crea la mitad de abajo de el "Sieve of Erathosthenes" para un numero n.
-// https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-// Para saber si el numero es primo, solo necesitamos la tabla del tamano de la
-// raiz de n. Para Obtener todos los primos de la tabla solo necesitamos la raiz
-// del tamano de la tabla.
-std::vector<int> Sieve(int for_n) {
-  assert(for_n > 0 && "Cant compute a sieve for a number of 0 or less");
+/// Calcula el "Sieve of Erathosthenes" hasta n.
+/// https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+// Using vector because it packs bools
+std::vector<bool> Sieve(int for_n) {
+  assert(for_n >= 0 && "Cant compute a sieve for a number less than 0");
+  // Special cases
+  if (for_n == 0) return {false};
+  if (for_n == 1) return {false, false};
 
-  // Creamos el sieve suponiendo que todos son primos y vamos descartando todos
-  // los multiplos de los primos que vayamos obteniendo.
-  std::vector<bool> sieve(std::sqrt(for_n) + 1, true);
-  sieve[0] = false; // 0 y 1 no son primos por definicion
+  // To get all sieve primes, only need to loop until sqrt of n
+  auto up_to{static_cast<size_t>(ceil(sqrt(static_cast<double>(for_n)))) + 1};
+
+  std::vector<bool> sieve(for_n + 1, true);
+  sieve[0] = false;
   sieve[1] = false;
 
-  // Vamos recorriendo el array buscando primos para descartar elementos del
-  // sieve.
-  std::size_t cursor{2};
-  std::size_t max_possible_cursor{static_cast<size_t>(std::sqrt(sieve.size()))};
-  while (cursor <= max_possible_cursor) {
-    if (sieve[cursor]) {
-      for (std::size_t i{cursor * 2}, e{sieve.size()}; i < e; i += cursor)
-        sieve[i] = false;
+  for (size_t i{0}; i <= up_to; ++i) {
+    if (sieve[i]) {
+      for (size_t k{i*2}; k <= for_n; k += i)
+        sieve[k] = false;
     }
-    ++cursor;
   }
 
-  // Creamos un vector para almacenar los primos (los indices con valor true en
-  // el vector _sieve_).
-  std::vector<int> primes{};
-  primes.reserve(max_possible_cursor);
-  for (std::size_t i{0}, e{sieve.size()}; i < e; ++i)
-    if (sieve[i]) primes.push_back(i);
-  return primes;
+  return sieve;
 }
 
-// Hace check contra el sieve para ver si el numero es divisible por algun otro
-// mas que el mismo y 1.
 bool IsPrime(int n) {
   assert(n >= 0 && "IsPrime should not have a negative parameter.");
-  if (n == 0 || n == 1) return false;
-  std::vector<int> sieve{Sieve(n)};
-  bool is_prime{true};
-  for (const int &prime : sieve) {
-    if (n % prime == 0) {
-      is_prime = false;
-      break;
-    }
-  }
-  return is_prime;
+  return Sieve(n)[n];
 }
 
-void Test() {
-  assert(Sieve(1).empty());
-  assert(Sieve(2).empty());
-  assert(Sieve(10) == (std::vector{2, 3}));
-  assert(Sieve(34) == (std::vector{2, 3, 5}));
-
-  assert(!IsPrime(0));
-  assert(!IsPrime(1));
-  assert(IsPrime(2));
-  assert(!IsPrime(171));
-  assert(IsPrime(197));
-  assert(IsPrime(5387));
-  assert(!IsPrime(4927));
+TEST_CASE("test IsPrime") {
+  CHECK(!IsPrime(0));
+  CHECK(!IsPrime(1));
+  CHECK(IsPrime(2));
+  CHECK(!IsPrime(171));
+  CHECK(IsPrime(197));
+  CHECK(IsPrime(5387));
+  CHECK(!IsPrime(4927));
 }
 
-int main() {
-  // Test();
+int main(int argc, char **argv) {
+  doctest::Context ctx;
+  ctx.setOption("abort-after", 5);
+  ctx.applyCommandLine(argc, argv);
+  ctx.setOption("no-breaks", true);
+  int res = ctx.run();
+  if (ctx.shouldExit())
+    return res;
+
   UserIO io{};
   while (true) {
     try {
@@ -98,7 +85,7 @@ int main() {
         io << n << " es primo.\n";
       else
         io << n << " no es primo.\n";
-      return 0;
+      return res;
     } catch (std::runtime_error &e) {
       io.Err(e.what());
       io.Err('\n');

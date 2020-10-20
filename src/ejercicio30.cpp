@@ -1,14 +1,21 @@
+//===-- ejercicio30.cpp -----------------------------------------*- C++ -*-===//
+///
+/// \file
+/// Ejercicio30
+/// -----------
+/// Crear una función que recorra un vector de números enteros positivos y
+/// devuelva un vector con aquellos números que sean primos. Para ello se creará
+/// previamente una función que diga si un número es primo o no.
+///
+//===----------------------------------------------------------------------===//
+
+#define DOCTEST_CONFIG_IMPLEMENT
 #include <cassert>
-#include <iostream>
 #include <algorithm>
 #include <vector>
 #include <any>
 #include <cmath>
-
-// Crear una función que recorra un vector de números enteros positivos y
-// devuelva un vector con aquellos números que sean primos. Para ello se creará
-// previamente una función que diga si un número es primo o no.
-
+#include "doctest.h"
 
 // Crea la mitad de abajo de el "Sieve of Erathosthenes" para un numero n.
 std::vector<int> Sieve(int for_n) {
@@ -59,7 +66,7 @@ bool IsPrime(int n) {
 
 std::vector<int> TakePrimes(const std::vector<int> &numbers) {
   assert(std::all_of(numbers.begin(), numbers.end(),
-                  [](const int &n) { return n >= 0; }));
+                     [](const int &n) { return n >= 0; }));
   std::vector<int> primes{};
   for (const int &n : numbers)
     if (IsPrime(n)) primes.push_back(n);
@@ -67,8 +74,8 @@ std::vector<int> TakePrimes(const std::vector<int> &numbers) {
 }
 
 void Test() {
-  std::vector v{1,2,3,4,5,6,7,8,9,10,11,12,13};
-  assert(TakePrimes(v) == (std::vector<int>{2,3,5,7,11,13}));
+  std::vector v{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+  assert(TakePrimes(v) == (std::vector<int>{2, 3, 5, 7, 11, 13}));
 }
 
 int main() {
