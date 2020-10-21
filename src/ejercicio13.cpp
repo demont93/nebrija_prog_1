@@ -21,8 +21,9 @@ inline bool CharIsA(const char &c) {
 
 std::vector<std::string> ContainsA(const std::string &s) {
   std::vector<std::string> words_with_a{};
-  // Whitespace/Non-whitespace flags
+  // word has a, flag
   bool has_a{false};
+  // Whitespace/Non-whitespace flags
   bool cur_char_is_space{false};
 
   // Word begin & end pointers

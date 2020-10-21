@@ -18,7 +18,7 @@
 #include "doctest.h"
 #include "utilities.h"
 
-template<std::size_t SIZE, typename T>
+template<size_t SIZE, typename T>
 void PrintAllPositionsOf7(const std::array<int, SIZE> &arr, T &output) {
   for (int i{0}; i < SIZE; ++i)
     if (arr[i] == 7) output << i << " ";

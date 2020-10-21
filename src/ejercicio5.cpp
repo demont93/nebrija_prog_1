@@ -17,7 +17,7 @@
 #include "utilities.h"
 #include "user_io.h"
 
-template<std::size_t SIZE>
+template<size_t SIZE>
 std::optional<size_t> PositionOfFirst7(const std::array<int, SIZE> arr) {
   for (size_t i{0}; i < SIZE; ++i)
     if (arr[i] == 7) return i;
