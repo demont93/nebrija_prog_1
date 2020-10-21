@@ -45,7 +45,8 @@ class UserIO {
     }
   }
 
-  template <> inline bool Token(int &token) {
+  template<>
+  inline bool Token(int &token) {
     double numd;
     if (buffer >> numd) {
       if (numd > std::numeric_limits<int>::max() ||
@@ -75,6 +76,8 @@ class UserIO {
       std::string{"No pude interpretar el input como una variable de tipo "} +
       var_name < T > +".\nIntenta de nuevo.\n");
   };
+
+  explicit operator bool();
 
   std::ostream &ostream{std::cout};
   std::istream &istream{std::cin};

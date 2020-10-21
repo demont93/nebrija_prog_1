@@ -1,4 +1,3 @@
-#include <cmath>
 #include <stdexcept>
 #include "user_io.h"
 
@@ -20,4 +19,8 @@ bool UserIO::GetLine(std::string &token) {
     buffer.clear(); // Reset flags
   }
   return ok;
+}
+
+UserIO::operator bool() {
+  return bool(buffer);
 }
