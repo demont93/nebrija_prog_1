@@ -11,7 +11,6 @@
 
 #define DOCTEST_CONFIG_IMPLEMENT
 
-#include <cstring>
 #include <iostream>
 #include <algorithm>
 #include "user_io.h"
