@@ -38,7 +38,7 @@ class UserIO {
     }
   }
 
-  template <> inline bool UserIO::Token(int &token) {
+  template <> inline bool Token(int &token) {
     double numd;
     if (buffer >> numd) {
       if (numd > std::numeric_limits<int>::max() ||
