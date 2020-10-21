@@ -21,7 +21,3 @@ bool UserIO::GetLine(std::string &token) {
   }
   return ok;
 }
-
-UserIO::operator bool() {
-  return bool(buffer);
-}

@@ -1,3 +1,11 @@
+//===-- user_io.h -----------------------------------------------*- C++ -*-===//
+///
+/// \file
+/// Punto de entrada para todas las funciones de I/O tipicas de los "toy
+/// exercises".
+///
+//===----------------------------------------------------------------------===//
+
 #pragma once
 
 #include <ostream>
@@ -10,12 +18,11 @@ class UserIO {
  public:
   UserIO() = default;
 
+  /// Envia un mensaje de error al usuario.
   template<typename T>
   inline void Err(T what) {
     errstream << what;
   }
-
-  explicit operator bool();
 
   template<typename T>
   UserIO &operator<<(T s) {
