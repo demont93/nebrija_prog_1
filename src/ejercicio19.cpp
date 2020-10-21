@@ -31,7 +31,7 @@ std::vector<bool> Sieve(int for_n) {
   // To get all sieve primes, only need to loop until sqrt of n
   auto up_to{static_cast<size_t>(ceil(sqrt(static_cast<double>(for_n)))) + 1};
 
-  std::vector<bool> sieve(for_n + 1, true);
+  std::vector<bool> sieve(static_cast<size_t>(for_n + 1), true);
   sieve[0] = false;
   sieve[1] = false;
 
@@ -69,7 +69,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io{};
+  UserIo io{};
   while (true) {
     try {
       int n;

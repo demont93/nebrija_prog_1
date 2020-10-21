@@ -38,21 +38,10 @@ class Sieve {
     return Sieve{MakeSieve(size)};
   }
 
-  /// Revisa si un numero es primo en la tabla con chequeo de indices. Si
-  /// necesitas mas velocidad puedes evitar el check con IsPrimeUnchecked.
-  [[nodiscard]] bool IsPrime(const size_t n) const {
-    return table.at(n);
-  }
-
   /// Revisa si un numero es primo en la tabla sin chequear los indices. Para
   /// una alternativa segura mira IsPrime.
   [[nodiscard]] bool IsPrimeUnchecked(const size_t n) const noexcept {
     return table[n];
-  }
-
-  /// Retorna el maximo numero que puedes preguntar si es primo.
-  [[nodiscard]] size_t MaxPossiblePrime() const noexcept {
-    return table.size() - 1;
   }
 
  private:
@@ -134,7 +123,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io;
+  UserIo io;
   std::vector<size_t> numbers{1, 2, 4, 5, 20, 39, 3498734, 98734, 5485863};
   io << "A partir de la coleccion "
      << CollectionString(numbers.begin(), numbers.end()) << '\n';

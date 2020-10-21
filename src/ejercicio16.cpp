@@ -18,8 +18,8 @@ constexpr int kMax{65535};
 
 int Series(const int n) {
   assert(n >= 0 && n <= kMax);
-  auto big_n = static_cast<std::int64_t>(n);
-  return big_n * (big_n + 1) / 2.0;
+  auto big_n = static_cast<int64_t>(n);
+  return static_cast<int>(big_n * (big_n + 1) / 2.0L);
 }
 
 TEST_CASE("test Series") {
@@ -38,7 +38,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io;
+  UserIo io;
   int n;
   while (true) {
     try {

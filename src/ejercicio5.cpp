@@ -56,9 +56,9 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io;
+  UserIo io;
   const std::array arr{3, 34, 34, 2, 5, 252834, 6, 7, 5484, 0, 0, 1};
-  const std::optional<int> index = PositionOfFirst7(arr);
+  const std::optional<size_t> index = PositionOfFirst7(arr);
   if (index) {
     io << "First '7' found in: " << CollectionString(arr.begin(), arr.end())
        << " at index: " << *index << '\n';

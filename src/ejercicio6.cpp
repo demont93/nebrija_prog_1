@@ -14,7 +14,6 @@
 #include <iostream>
 #include <array>
 #include <sstream>
-#include <cassert>
 #include "user_io.h"
 #include "doctest.h"
 #include "utilities.h"
@@ -71,7 +70,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io;
+  UserIo io;
   std::array arr{7, 7, 7, 7, 7, 7, 7, 7};
   io << "En el siguiente array:\n" << CollectionString(arr.begin(), arr.end())
      << "\nhemos encontrado el 7 en las posiciones: \n";

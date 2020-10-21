@@ -6,7 +6,7 @@
 // Vea ejercicio19
 
 int main() {
-  UserIO io;
+  UserIo io;
   io << "Vea ejercicio19";
   return 0;
 }

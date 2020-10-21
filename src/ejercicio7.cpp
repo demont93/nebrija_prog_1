@@ -16,7 +16,7 @@
 #include "utilities.h"
 #include "user_io.h"
 
-int TimesA(const std::string &s) {
+int64_t TimesA(const std::string &s) {
   return std::count_if(s.begin(), s.end(), [](const char &c) {
     return c == 'a' || c == 'A';
   });
@@ -39,7 +39,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io;
+  UserIo io;
   io << "Introduce una oracion preferiblemente con 'a' o 'A': ";
   std::string user_input{};
   if (!io.GetInputFromUser()) return 0;

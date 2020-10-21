@@ -38,13 +38,13 @@ void FillRandom(std::array<int, 100> &randoms) {
 std::vector<int> MultiplesOf3(const std::array<int, 100> &randoms) {
   // Usamos una tabla para guardar los multiplos unicos en orden.
   std::array<int, 20> table{};
-  for (size_t i{3}, e{table.size()}; i < e; i += 3)
+  for (int i{3}, e{table.size()}; i < e; i += 3)
     table[i] = true;
   for (const auto &n : randoms)
     table[n] = false;
   std::vector<int> result;
   result.reserve(6);
-  for (size_t i{3}, e{table.size()}; i < e; i += 3) {
+  for (int i{3}, e{table.size()}; i < e; i += 3) {
     if (!table[i])
       result.push_back(i);
   }
@@ -54,7 +54,7 @@ std::vector<int> MultiplesOf3(const std::array<int, 100> &randoms) {
 TEST_CASE ("test FillRandom") {
   std::array<int, 100> table{};
   FillRandom(table);
-  std::array<int, 100> table_2{};;
+  std::array<int, 100> table_2{};
   FillRandom(table_2);
   CHECK_NE(table, table_2);
 }
@@ -88,7 +88,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io;
+  UserIo io;
   std::array<int, 100> table{};
   FillRandom(table);
   io << "A partir del array "

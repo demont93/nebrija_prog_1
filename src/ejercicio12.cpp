@@ -17,7 +17,7 @@
 #include "doctest.h"
 
 template<std::size_t SIZE>
-int Contiguous7(const std::array<int, SIZE> &arr) {
+size_t Contiguous7(const std::array<int, SIZE> &arr) {
   std::size_t counter{0};
   std::size_t max{0};
   for (const int &n : arr) {
@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io;
+  UserIo io;
   std::array arr{1, 2, 7, 7, 4, 3, 3, 7, 7, 7, 2};
   io << "El numero 7 aparace como maximo " << Contiguous7(arr)
      << " veces seguidas.";

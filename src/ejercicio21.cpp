@@ -12,7 +12,6 @@
 #include <array>
 #include "user_io.h"
 #include "utilities.h"
-#include <utility>
 #include "doctest.h"
 
 /// Calcula Fibonacci durante compilacion
@@ -43,7 +42,7 @@ constexpr void FillFibTable(std::array<int, 10> &table) {
 }
 
 int main() {
-  UserIO io{};
+  UserIo io{};
   std::array<int, 10> empty{};
   io << "Esta es la tabla vacia:\n"
      << CollectionString(empty.begin(), empty.end()) << '\n';

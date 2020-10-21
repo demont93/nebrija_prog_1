@@ -44,7 +44,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io;
+  UserIo io;
   std::array arr{1, 2, 3, 4, 532, 6, 134};
   io << "La media aritmetica de " << CollectionString(arr.begin(), arr.end())
      << " es: " << MeanArr(arr) << '\n';

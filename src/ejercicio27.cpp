@@ -22,7 +22,7 @@ std::vector<int> OrderedUnique(const std::array<int, 20> &arr) {
     lookup_table[n] = true;
   std::vector<int> ordered_unique{};
   ordered_unique.reserve(20);
-  for (size_t i{0}, e{lookup_table.size()}; i < e; ++i)
+  for (int i{0}, e{lookup_table.size()}; i < e; ++i)
     if (lookup_table[i]) ordered_unique.push_back(i);
   return ordered_unique;
 }
@@ -44,7 +44,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io;
+  UserIo io;
   std::array<int, 20> table{};
   FillRandomInts(table.begin(), table.end(), 0, 100);
   io << "A partir del array "

@@ -58,7 +58,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io;
+  UserIo io;
   std::array arr{1, 2, 2, 3, 1, 4, 4, 2, 2, 10};
   io << "Elemento que aparece con mas frecuencia en "
      << CollectionString(arr.begin(), arr.end());

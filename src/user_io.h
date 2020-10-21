@@ -14,9 +14,9 @@
 #include <sstream>
 #include <cmath>
 
-class UserIO {
+class UserIo {
  public:
-  UserIO() = default;
+  UserIo() = default;
 
   /// Envia un mensaje de error al usuario.
   template<typename T>
@@ -25,7 +25,7 @@ class UserIO {
   }
 
   template<typename T>
-  UserIO &operator<<(T s) {
+  UserIo &operator<<(T s) {
     Tell(s);
     return *this;
   }
@@ -47,7 +47,7 @@ class UserIO {
 
   template<>
   inline bool Token(int &token) {
-    double numd;
+    double numd{0};
     if (buffer >> numd) {
       if (numd > std::numeric_limits<int>::max() ||
           numd < std::numeric_limits<int>::min()) {
@@ -74,7 +74,7 @@ class UserIO {
   void FailParseMessage() {
     throw std::runtime_error(
       std::string{"No pude interpretar el input como una variable de tipo "} +
-      var_name < T > +".\nIntenta de nuevo.\n");
+      var_name<T> +".\nIntenta de nuevo.\n");
   };
 
   explicit operator bool();

@@ -31,16 +31,8 @@ class Sieve {
     return Sieve{MakeSieve(size)};
   }
 
-  [[nodiscard]] bool IsPrime(const size_t n) const {
-    return table.at(n);
-  }
-
   [[nodiscard]] bool IsPrimeUnchecked(const size_t n) const noexcept {
     return table[n];
-  }
-
-  [[nodiscard]] size_t MaxPossiblePrime() const noexcept {
-    return table.size() - 1;
   }
 
  private:
@@ -87,7 +79,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io;
+  UserIo io;
   io << "Enter a number:\n";
   if (!io.GetInputFromUser()) return res;
   size_t n;

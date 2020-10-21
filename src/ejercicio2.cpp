@@ -12,7 +12,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT
 
 #include <ostream>
-#include <string>
 #include <cstring>
 #include "user_io.h"
 #include "doctest.h"
@@ -46,7 +45,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io;
+  UserIo io;
   io << kPhrase << " contiene " << kSubs << " en las posiciones:\n";
   PositionOfTri(io);
   return res;

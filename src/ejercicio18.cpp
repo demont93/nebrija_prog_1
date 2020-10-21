@@ -52,7 +52,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io;
+  UserIo io;
   std::vector<std::string> haystack{"cosas", "otras cosas", "Vegetarianos",
                                     "guardar", "carne", "cultura", "guardar",
                                     "reggaeton"};

@@ -45,7 +45,7 @@ int main(int argc, char **argv) {
   int res = ctx.run();
   if (ctx.shouldExit())
     return res;
-  UserIO io;
+  UserIo io;
   io << "Si quitamos la palabra Mancha de: " << kPhrase << '\n'
      << "queda: ";
   BeforeAfterMancha(io);

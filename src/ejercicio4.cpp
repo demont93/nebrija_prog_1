@@ -48,7 +48,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io;
+  UserIo io;
   io << "No introduzcas una contrasena verdadera!\n"
      << "Introduce un texto y guardare la palabra despues de 'password': ";
   std::string user_input;

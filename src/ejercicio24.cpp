@@ -88,7 +88,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io{};
+  UserIo io{};
   while (true) {
     try {
       io << "Introduce un entero n tal que 0 < n < 2^63:\n";

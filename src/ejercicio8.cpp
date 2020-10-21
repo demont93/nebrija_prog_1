@@ -13,13 +13,12 @@
 #include <iostream>
 #include "doctest.h"
 #include "user_io.h"
-#include <cstring>
 
 inline bool IsA(const char &c) {
   return c == 'a' || c == 'A';
 }
 
-int TimesBeginA(const std::string &line) {
+size_t TimesBeginA(const std::string &line) {
   size_t counter{0};
   bool is_in_word{false};
   for (const char &c : line) {
@@ -52,7 +51,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io;
+  UserIo io;
   io << "Introduce una linea de texto: ";
   if (!io.GetInputFromUser()) return 0;
   std::string user_input{};

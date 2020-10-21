@@ -63,7 +63,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io{};
+  UserIo io{};
   io << "Introduce una oracion: \n";
   if (!io.GetInputFromUser()) return 0;
   std::string s;

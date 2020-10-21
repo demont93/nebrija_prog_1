@@ -11,6 +11,6 @@
 #include "user_io.h"
 
 int main() {
-  UserIO io;
+  UserIo io;
   io << "Ver ejercicio 24\n";
 }

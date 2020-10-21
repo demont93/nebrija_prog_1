@@ -27,7 +27,7 @@ std::vector<int64_t> NFib(int n) {
   if (n == 2) return {0, 1};
 
   std::vector<std::int64_t> fibos{0, 1};
-  fibos.reserve(n);
+  fibos.reserve(static_cast<size_t>(n));
   int operations{n - 2};
   for (int i{0}; i < operations; ++i) {
     auto last_it = fibos.rbegin();
@@ -53,7 +53,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io{};
+  UserIo io{};
   while (true) {
     try {
       io << "Introduce un entero n tal que 0 <= n <= 93:\n";

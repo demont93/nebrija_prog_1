@@ -1,7 +1,7 @@
 #include <stdexcept>
 #include "user_io.h"
 
-bool UserIO::GetLine(std::string &token) {
+bool UserIo::GetLine(std::string &token) {
   std::string s{buffer.str()};
   if (s.empty()) {
     return false;
@@ -11,9 +11,9 @@ bool UserIO::GetLine(std::string &token) {
   }
 }
 
-[[nodiscard]] bool UserIO::GetInputFromUser() {
+[[nodiscard]] bool UserIo::GetInputFromUser() {
   std::string s{};
-  bool ok{std::getline(istream, s)};
+  bool ok{static_cast<bool>(std::getline(istream, s))};
   if (ok) {
     buffer.str(s);
     buffer.clear(); // Reset flags
@@ -21,6 +21,6 @@ bool UserIO::GetLine(std::string &token) {
   return ok;
 }
 
-UserIO::operator bool() {
+UserIo::operator bool() {
   return bool(buffer);
 }

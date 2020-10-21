@@ -19,19 +19,19 @@ struct Point {
 };
 
 struct Segment {
-  Point p1;
-  Point p2;
+  Point p_1;
+  Point p_2;
 };
 
 struct Triangle {
-  Point p1;
-  Point p2;
-  Point p3;
+  Point p_1;
+  Point p_2;
+  Point p_3;
 };
 
 struct Square {
-  Point p1;
-  Point p2;
+  Point p_1;
+  Point p_2;
 };
 
 struct Circle {
@@ -45,6 +45,6 @@ struct Scene {
 };
 
 int main() {
-  UserIO io;
+  UserIo io;
   io << "Podemos construir una escena.\n";
 }

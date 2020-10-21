@@ -49,7 +49,7 @@ int main(int argc, char **argv) {
   if (ctx.shouldExit())
     return res;
 
-  UserIO io;
+  UserIo io;
   io << "Escribe una frase:\n";
   if (!io.GetInputFromUser()) return res;
   std::string line;
