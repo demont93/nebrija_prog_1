@@ -32,4 +32,11 @@ else ()
     find_package(doctest REQUIRED)
 endif ()
 
+if (NOT MSVC)
+    set(CMAKE_CXX_FLAGS_<CONFIG>_INIT "-Wall -Wextra -Wpedantic -Werror -fsanitize=address -fno-omit-frame-pointer -Wshadow
+            -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Woverloaded-virtual
+            -Wconversion -Wsign-conversion -O1")
+    add_compile_options()
+endif()
+
 add_subdirectory(src)

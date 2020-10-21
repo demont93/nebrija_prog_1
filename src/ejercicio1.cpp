@@ -2,7 +2,7 @@
 ///
 /// \file
 /// Ejercicio 1
-/// ---------
+/// ===========
 /// Sea una escena como la de la figura. La escena tiene un cuadrado, un
 /// triángulo (no tiene que ser equilatero) y uncírculo. Las dimensiones y las
 /// posiciones de estas figuras en la escena pueden cambiar. Se pide, crear una

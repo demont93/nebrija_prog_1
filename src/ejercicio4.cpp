@@ -13,31 +13,31 @@
 
 #include <cstring>
 #include <iostream>
+#include <algorithm>
 #include "user_io.h"
 #include "doctest.h"
 
 std::string GetPassword(const std::string &s) {
-  char ss[s.size()+1];
-  strcpy(ss, s.c_str());
-  const char *delim{" \t\r\n\v\f"};
-  const char *word{strtok(ss, delim)};
-  while (word != nullptr) {
-    if (strcmp(word, "password") == 0) {
-      word = strtok(nullptr, " ");
-      if (word != nullptr) return {word};
-      else return {};
-    }
-    word = strtok(nullptr, " ");
+  auto e{s.end()};
+  static const char *pass{"password"};
+  auto it{std::search(s.begin(), e, pass, pass + 8)};
+  if (it == e || (it != s.begin() && !isspace(*(it - 1))) || it + 8 == e ||
+      !isspace(*(it + 8))) {
+    return {};
   }
-  return {};
+  it += 8;
+  it = std::find_if_not(it, e, isspace);
+  std::string result{};
+  std::copy(it, std::find_if(it, e, isspace), std::back_inserter(result));
+  return result;
 }
 
-TEST_CASE("test password") {
-  CHECK(GetPassword("").empty());
-  CHECK(GetPassword("passwrd hjello1234").empty());
-  CHECK_EQ(GetPassword("password 1234"), "1234");
-  CHECK_EQ(GetPassword("lkdjf kd 3 aaa password big password small"), "big");
-  CHECK(GetPassword("apassword &&&&").empty());
+TEST_CASE ("test password") {
+    CHECK(GetPassword("").empty());
+    CHECK(GetPassword("passwrd hjello1234").empty());
+    CHECK_EQ(GetPassword("password 1234"), "1234");
+    CHECK_EQ(GetPassword("lkdjf kd 3 aaa password big password small"), "big");
+    CHECK(GetPassword("apassword &&&&").empty());
 }
 
 int main(int argc, char **argv) {
