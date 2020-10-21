@@ -2,7 +2,7 @@
 ///
 /// \file
 /// Ejercicio4
-/// ----------
+/// ==========
 /// Pedir al usuario que introduzca un texto por teclado. Comprobar si el texto
 /// contiene la palabra "password" y en caso de que la contenga mostrar por
 /// pantalla la palabra que haya a continuación.
