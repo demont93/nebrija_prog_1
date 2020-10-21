@@ -4,6 +4,7 @@
 #include <iostream>
 #include <optional>
 #include <sstream>
+#include <cmath>
 
 class UserIO {
  public:
