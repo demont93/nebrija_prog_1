@@ -28,7 +28,7 @@ struct UnzippedFactors {
 
 [[nodiscard]] UnzippedFactors UnzipFactorPairs(int64_t factors_of);
 
-std::vector<std::int64_t> Factors(std::int64_t n) {
+std::vector<int64_t> Factors(int64_t n) {
   assert(n > 0 && "Cant output infinite factors of 0");
   UnzippedFactors fs{UnzipFactorPairs(n)};
   // Si el ultimo factor se repite porque la raiz de n es un natural, debemos
