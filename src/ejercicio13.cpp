@@ -11,6 +11,7 @@
 
 #include <array>
 #include <vector>
+#include <string_view>
 #include "doctest.h"
 #include "utilities.h"
 #include "user_io.h"
@@ -19,53 +20,54 @@ inline bool CharIsA(const char &c) {
   return c == 'a' || c == 'A';
 }
 
-std::vector<std::string> ContainsA(const std::string &s) {
-  std::vector<std::string> words_with_a{};
-  // word has a, flag
-  bool has_a{false};
-  // Whitespace/Non-whitespace flags
-  bool cur_char_is_space{false};
+template<typename T>
+void SkipWs(T &begin, T end) {
+  while (isspace(*begin) && begin != end)
+    ++begin;
+}
 
-  // Word begin & end pointers
-  auto word_begin{s.begin()};
-  auto word_end{s.begin()};
-
-  // Conditions for checking word boundaries
-  auto word_is_ending{[&cur_char_is_space](auto it) {
-    return isspace(*it) && !cur_char_is_space;
-  }};
-  auto is_in_middle_of_word{
-    [&cur_char_is_space]() { return !cur_char_is_space; }};
-  auto word_is_starting{[](const char &c) { return !isspace(c); }};
-
-  // Main loop
-  for (auto it{s.begin()}, e{s.end()}; it != e; ++it) {
-    if (word_is_ending(it)) {
-      cur_char_is_space = true;
-      word_end = it;
-      if (has_a) {
-        words_with_a.emplace_back(std::string(word_begin, word_end));
-      }
-    } else if (is_in_middle_of_word()) {
-      has_a = has_a || CharIsA(*it);
-    } else if (word_is_starting(*it)) {
-      cur_char_is_space = false;
-      word_begin = it;
-      has_a = CharIsA(*it);
-    }
+template<typename T>
+inline bool WordWithA(T begin, T &end) {
+  begin = std::find_if(begin, end, [](const char &c) {
+    return CharIsA(c) || isspace(c);
+  });
+  if (CharIsA(*begin)) {
+    end = std::find_if(begin, end, isspace);
+    return true;
+  } else {
+    end = begin;
+    return false;
   }
-  // Maybe emplace final word of string.
-  if (!cur_char_is_space && has_a)
-    words_with_a.emplace_back(std::string(word_begin, s.end()));
-  return words_with_a;
+}
+
+template<typename T>
+void ContainsA(const std::string &s, T &out) {
+  auto w_end{s.begin()};
+  auto it{s.begin()};
+  auto e{s.end()};
+  while (it != e) {
+    SkipWs(it, e);
+    if (WordWithA(it, (w_end = e))) {
+      for (; it != w_end; ++it) out << *it;
+      out << ' ';
+      it = w_end;
+    }
+    it = w_end;
+  }
 }
 
 TEST_CASE ("test ContainsA") {
-    CHECK_EQ(ContainsA("This text contains 3 words with an 'A'"),
-             (std::vector<std::string>{"contains", "an", "'A'"}));
-    CHECK(ContainsA("").empty());
-    CHECK_EQ(ContainsA("aaaaaaaaaaaaaaaaaaaaaa"),
-             std::vector<std::string>{"aaaaaaaaaaaaaaaaaaaaaa"});
+  std::stringstream ss{};
+    REQUIRE_EQ(ss.str(), "");
+
+    SUBCASE("one") {
+    ContainsA("hola", ss);
+      CHECK_EQ(ss.str(), "hola ");
+  }
+    SUBCASE("many") {
+    ContainsA("hola como estas", ss);
+      CHECK_EQ(ss.str(), "hola estas ");
+  }
 }
 
 int main(int argc, char **argv) {
@@ -83,7 +85,6 @@ int main(int argc, char **argv) {
   if (!io.GetInputFromUser()) return 0;
   io.GetLine(user_input);
   io << "Estas palabras contienen 'a' o 'A': ";
-  std::vector result{ContainsA(user_input)};
-  io << CollectionString(result.begin(), result.end()) << '\n';
+  ContainsA(user_input, io);
   return res;
 }
