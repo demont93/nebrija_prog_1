@@ -11,7 +11,6 @@
 
 #include <array>
 #include <vector>
-#include <string_view>
 #include "doctest.h"
 #include "utilities.h"
 #include "user_io.h"
