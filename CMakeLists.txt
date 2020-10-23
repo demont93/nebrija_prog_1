@@ -12,6 +12,8 @@ set(DOWNLOAD_DOCTEST OFF CACHE BOOL "Turn on to download doctest using git")
 
 include(ExternalProject)
 find_package(Git REQUIRED)
+find_package(benchmark QUIET)
+find_package(Threads)
 
 if (DOWNLOAD_DOCTEST)
     ExternalProject_Add(
