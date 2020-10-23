@@ -25,10 +25,10 @@ int64_t Factorial(int n) {
 };
 
 TEST_CASE ("test Factorial") {
-  assert(Factorial(0) == 1);
-  assert(Factorial(1) == 1);
-  assert(Factorial(20) == 2432902008176640000);
-  assert(Factorial(10) == 3628800);
+  CHECK_EQ(Factorial(0), 1);
+  CHECK_EQ(Factorial(1), 1);
+  CHECK_EQ(Factorial(20), 2432902008176640000);
+  CHECK_EQ(Factorial(10), 3628800);
 }
 
 int main(int argc, char **argv) {
