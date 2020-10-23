@@ -17,10 +17,9 @@ int64_t Factorial(int n) {
   assert(n <= 20 && n >= 0);
   if (n == 0) return 1;
 
-  int64_t accumulator{1};
-  for (int i{1}; i <= n; ++i) {
-    accumulator *= i;
-  }
+  int64_t accumulator{n};
+  while (--n) accumulator *= n;
+
   return accumulator;
 };
 
