@@ -32,6 +32,9 @@ class UserIo {
   bool GetLine(std::string &token);
   [[nodiscard]] bool GetInputFromUser();
 
+  template<typename T>
+  [[nodiscard]] bool Ask(const std::string& question, T &answer);
+
  private:
   template<typename T>
   void FailParseMessage();
@@ -64,7 +67,7 @@ UserIo &UserIo::operator<<(T s) {
 template<typename T>
 void UserIo::Tell(T data) {
   ostream << data;
-};
+}
 
 template<typename T>
 bool UserIo::Token(T &token) {
@@ -101,4 +104,15 @@ void UserIo::FailParseMessage() {
   throw std::runtime_error(
     std::string{"No pude interpretar el input como una variable de tipo "} +
     var_name<T> + ".\nIntenta de nuevo.\n");
-};
+}
+
+template<typename T>
+[[nodiscard]] bool UserIo::Ask(const std::string& question, T &answer) {
+  Tell(question);
+  if (!GetInputFromUser()) {
+    return false;
+  } else {
+    Token(answer);
+    return true;
+  }
+}
