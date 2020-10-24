@@ -34,6 +34,16 @@ QuadFun(double a, double b, double c) {
   }
 }
 
+std::string FormatComplex(std::complex<double> &complex) {
+  std::stringstream ss{};
+  ss << complex.real();
+  if (complex.imag() > 0)
+    ss << " + " << complex.imag() << 'i';
+  else if (complex.imag() < 0)
+    ss << " - " << complex.imag() * -1 << 'i';
+  return ss.str();
+}
+
 TEST_CASE ("Test roots") {
     CHECK_EQ(QuadFun(1, -2, 1),
              std::pair{std::complex{1.0}, std::complex{1.0}});
@@ -56,7 +66,26 @@ int main(int argc, char **argv) {
     return res;
 
   UserIo io;
-  io << ""
-
-  return res;
+  io << "Calculemos las raices de una funcion cuadratica.\n";
+  while (true) {
+    try {
+      int a, b, c;
+      bool success{
+        io.Ask("Introduce a: ", a) &&
+        io.Ask("Introduce b: ", b) &&
+        io.Ask("Introduce c: ", c)
+      };
+      if (!success) return res;
+      if (a == 0)
+        throw std::runtime_error("Si a == 0, la funcion no es cuadratica.");
+      io << "Las raices son:\n";
+      auto result{QuadFun(a, b, c)};
+      io << "x1 = " << FormatComplex(result.first) << '\n';
+      io << "x2 = " << FormatComplex(result.second) << '\n';
+      return res;
+    } catch (std::runtime_error &e) {
+      io.Err(e.what());
+      io.Err('\n');
+    }
+  }
 }
