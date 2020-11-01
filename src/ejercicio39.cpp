@@ -111,8 +111,6 @@ TEST_CASE ("Test exps") {
   DOCTEST_CHECK_THROWS(Lexer(test_input4));
 }
 
-
-
 int main(int argc, char **argv) {
   doctest::Context ctx;
   ctx.setOption("abort-after", 5);
