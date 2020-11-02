@@ -87,7 +87,6 @@ TokenStream Lexer(T &input) {
       case '5':case '6':case '7':case '8':case '9': {
         input.putback(c);
         double n;
-        // TODO handle err
         input >> n;
         buf.push_back(Token{n, 'n'});
         break;
