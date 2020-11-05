@@ -48,6 +48,7 @@ struct Token {
     return value == rhs.value && type == rhs.type;
   }
 
+
   double value{};
   char type{};
 };
